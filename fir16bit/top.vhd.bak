@@ -1,0 +1,110 @@
+-- Design and implementation of a reconfigurable FIR filter in FPGA
+-- Students: Nagaro Gianmarco, Ninni Daniele, Rodrigues Vero Filho Emerson, Valentini Lorenzo
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+--use WORK.TYPES.ALL;
+
+entity top is
+  port (
+    clock        : in  std_logic;
+    uart_txd_in  : in  std_logic;
+    uart_rxd_out : out std_logic
+  );
+end entity top;
+
+architecture str of top is
+
+  component uart_receiver is
+    port (
+      clock         : in  std_logic;
+      uart_rx       : in  std_logic;
+      valid         : out std_logic;
+      received_data : out std_logic_vector(7 downto 0)
+    );
+  end component uart_receiver;
+  
+  component fir_filter is
+    port (
+      clock     : in  std_logic;
+      reset     : in  std_logic;
+      data_in   : in  std_logic_vector(7 downto 0);
+      valid_in  : in  std_logic;
+      data_out  : out std_logic_vector(7 downto 0);
+      valid_out : out std_logic
+    );
+  end component fir_filter;
+  
+  component uart_transmitter is
+    port (
+      clock        : in  std_logic;
+      data_to_send : in  std_logic_vector(7 downto 0);
+      data_valid   : in  std_logic;
+      busy         : out std_logic;
+      uart_tx      : out std_logic
+    );
+  end component uart_transmitter;
+  
+  signal reset        : std_logic;
+  signal valid_in     : std_logic;
+  signal data_in      : std_logic_vector(7 downto 0);
+  signal data_out     : std_logic_vector(7 downto 0);
+  signal valid_out    : std_logic;
+  signal busy         : std_logic;
+  
+begin -- architecture str
+
+  -- Assign reset to '1' (inactive)
+  reset <= '1';
+
+    -- Instantiate UART Receiver
+  uart_receiver_1 : uart_receiver 
+    port map (
+      clock         => clock,
+      uart_rx       => uart_txd_in,
+      valid         => valid_in,
+      received_data => data_in
+    );
+
+  -- Instantiate UART Transmitter
+  uart_transmitter_1 : uart_transmitter 
+    port map (
+      clock        => clock,
+      data_to_send => data_in,
+      data_valid   => valid_in,
+      busy         => busy,
+      uart_tx      => uart_rxd_out
+    );
+  
+--  -- Instantiate UART Receiver
+--  uart_receiver_1 : uart_receiver 
+--    port map (
+--      clock         => clock,
+--      uart_rx       => uart_txd_in,
+--      valid         => valid_in,
+--      received_data => data_in
+--    );
+--
+--  -- Instantiate FIR Filter
+--  fir_filter_1 : fir_filter 
+--    port map (
+--      clock     => clock,
+--      reset     => reset,
+--      data_in   => data_in,    
+--      valid_in  => valid_in,
+--      data_out  => data_out,
+--      valid_out => valid_out
+--    );
+--  
+--  -- Instantiate UART Transmitter
+--  uart_transmitter_1 : uart_transmitter 
+--    port map (
+--      clock        => clock,
+--      data_to_send => data_out,
+--      data_valid   => valid_out,
+--      busy         => busy,
+--      uart_tx      => uart_rxd_out
+--    );
+
+end architecture str;
