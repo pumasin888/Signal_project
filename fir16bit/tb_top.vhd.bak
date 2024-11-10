@@ -1,0 +1,143 @@
+-- Testbench for the reconfigurable FIR filter in FPGA
+-- Students: Nagaro Gianmarco, Ninni Daniele, Rodrigues Vero Filho Emerson, Valentini Lorenzo
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.MATH_REAL.ALL;
+
+entity tb_top is
+  -- No port declarations in testbench
+end tb_top;
+
+architecture behavior of tb_top is
+
+  -- Component declaration of 'top' entity
+  component top is
+    port (
+      clock        : in  std_logic;
+      uart_txd_in  : in  std_logic;
+      uart_rxd_out : out std_logic
+    );
+  end component;
+
+  -- Signals
+  signal clock          : std_logic := '0';
+  signal uart_txd_in    : std_logic := '1'; -- UART idle is '1'
+  signal uart_rxd_out   : std_logic;
+  
+  -- New Signal for Sine Wave Sample Visualization
+  signal sine_sample     : std_logic_vector(7 downto 0); -- 8-bit sine wave sample
+
+  -- File I/O for Logging (Optional)
+  -- Uncomment if you want to log samples to a file
+  -- library std;
+  -- use std.textio.all;
+  -- file sine_wave_file   : text open write_mode is "sine_wave_log.txt";
+  -- variable sine_wave_line : line;
+
+  -- Constants for UART Configuration
+  constant clock_period  : time := 10 ns;
+  constant bit_time      : time := 4.335 us;   -- Updated for 230,400 baud
+  constant byte_time     : time := 43.35 us;   -- 10 bits per byte (1 start + 8 data + 1 stop)
+  constant bit_time_sec  : real := 4.335e-6;  -- 4.335 µs in seconds
+
+begin
+
+  -- Instantiate the Unit Under Test (UUT)
+  uut: top
+    port map (
+      clock        => clock,
+      uart_txd_in  => uart_txd_in,
+      uart_rxd_out => uart_rxd_out
+    );
+
+  -- Clock generation process
+  clock_process : process
+  begin
+    clock <= '0';
+    wait for clock_period / 2;
+    clock <= '1';
+    wait for clock_period / 2;
+  end process clock_process;
+
+  -- UART transmit process with sine wave generation
+  uart_transmit_process : process
+    -- Procedure to send a byte over UART
+    procedure send_uart_byte(data : std_logic_vector(7 downto 0)) is
+    begin
+      -- Send start bit
+      uart_txd_in <= '0';
+      wait for bit_time;
+      -- Send data bits LSB first
+      for i in 0 to 7 loop
+        uart_txd_in <= data(i);
+        wait for bit_time;
+      end loop;
+      -- Send stop bit
+      uart_txd_in <= '1';
+      wait for bit_time;
+    end procedure;
+
+    -- Sine wave parameters
+    constant pi_value        : real := 3.14159265358979323846;
+    constant amplitude       : real := 127.0; -- Max amplitude for 8-bit unsigned (0 to 255)
+    constant offset          : real := 127.0; -- Offset to make sine wave positive-only
+    constant freq            : real := 1000.0; -- Sine wave frequency in Hz
+    -- Removed sample_rate as it was unused
+    variable t               : real := 0.0;   -- Time variable for sine wave in seconds
+    variable sine_value      : real;
+    variable quantized_value : integer;
+    variable data_byte       : std_logic_vector(7 downto 0);
+  begin
+    wait for 100 us; -- Wait before starting transmission
+    loop
+      -- Generate sine wave sample
+      sine_value := amplitude * sin(2.0 * pi_value * freq * t) + offset;
+      -- Ensure the value is within 0 to 255
+      if sine_value > 255.0 then
+        sine_value := 255.0;
+      elsif sine_value < 0.0 then
+        sine_value := 0.0;
+      end if;
+      -- Quantize to 8-bit unsigned integer with proper rounding
+      quantized_value := integer(sine_value + 0.5);
+      -- Ensure quantized_value is within 0 to 255
+      if quantized_value > 255 then
+        quantized_value := 255;
+      elsif quantized_value < 0 then
+        quantized_value := 0;
+      end if;
+      data_byte := std_logic_vector(to_unsigned(quantized_value, 8));
+      -- Assign the current sine wave sample to the visualization signal
+      sine_sample <= data_byte;
+      -- (Optional) Log the sine wave sample to the file
+      -- write(sine_wave_line, string'("Sample: "));
+      -- write(sine_wave_line, quantized_value, right, 0);
+      -- writeline(sine_wave_file, sine_wave_line);
+      -- Send the quantized sample over UART
+      send_uart_byte(data_byte);
+      -- Wait for the duration of one byte transmission (start bit + 8 data bits + stop bit)
+      wait for byte_time; -- Use precomputed byte_time
+      -- Increment time
+      t := t + (bit_time_sec * 10.0); -- Each bit_time represents the duration of one bit
+    end loop;
+  end process uart_transmit_process;
+
+  -- UART receive process
+  uart_receive_process : process
+    variable received_byte : std_logic_vector(7 downto 0);
+  begin
+    forever_loop : loop
+      wait until uart_rxd_out'event and uart_rxd_out = '0'; -- Detect start bit
+      wait for bit_time + (bit_time / 2); -- Wait to the middle of the first data bit
+      for i in 0 to 7 loop
+        received_byte(i) := uart_rxd_out;
+        wait for bit_time;
+      end loop;
+      -- Ignore stop bit
+      report "Received byte: " & integer'image(to_integer(unsigned(received_byte)));
+    end loop forever_loop;
+  end process uart_receive_process;
+
+end architecture behavior;

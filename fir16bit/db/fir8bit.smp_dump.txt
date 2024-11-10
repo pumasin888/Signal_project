@@ -1,0 +1,16 @@
+
+State Machine - |top|uart_transmitter:uart_transmitter_1|state
+Name state.stop_s state.bit8_s state.bit7_s state.bit6_s state.bit5_s state.bit4_s state.bit3_s state.bit2_s state.bit1_s state.bit0_s state.start_s state.data_valid_s state.idle_s 
+state.idle_s 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.data_valid_s 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.start_s 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.bit0_s 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.bit1_s 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.bit2_s 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.bit3_s 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.bit4_s 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.bit5_s 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.bit6_s 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.bit7_s 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.bit8_s 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.stop_s 1 0 0 0 0 0 0 0 0 0 0 0 1 

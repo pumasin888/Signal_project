@@ -1,0 +1,335 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/New_Asgard/vs_code/signal_project/fir8bit/simulation/modelsim
+Ebaudrate_generator
+Z1 w1728960271
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 4
+R0
+Z5 8D:/New_Asgard/vs_code/signal_project/fir8bit/baudrate_generator.vhd
+Z6 FD:/New_Asgard/vs_code/signal_project/fir8bit/baudrate_generator.vhd
+l0
+L8 1
+V?bRSM7W^U7gE7kYjDLYMZ3
+!s100 [mJ7M19z4EL>i[O=LIOO^1
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1728987419
+!i10b 1
+Z9 !s108 1728987419.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|D:/New_Asgard/vs_code/signal_project/fir8bit/baudrate_generator.vhd|
+Z11 !s107 D:/New_Asgard/vs_code/signal_project/fir8bit/baudrate_generator.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+R4
+DEx4 work 18 baudrate_generator 0 22 ?bRSM7W^U7gE7kYjDLYMZ3
+!i122 4
+l18
+L13 21
+Vn=`SIcI04BWBW3S`PXzPD1
+!s100 ]E8X<9EVz7LUDjLB]EXjf1
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ei2s_transceiver
+Z14 w1728901074
+R3
+R4
+!i122 1
+R0
+Z15 8D:/New_Asgard/vs_code/signal_project/fir8bit/i2s_transceiver.vhd
+Z16 FD:/New_Asgard/vs_code/signal_project/fir8bit/i2s_transceiver.vhd
+l0
+L26 1
+VK@AQmE86OYSK?_cFlBB`]3
+!s100 02hUG37?n7og_3[Kj7XfO3
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|D:/New_Asgard/vs_code/signal_project/fir8bit/i2s_transceiver.vhd|
+Z18 !s107 D:/New_Asgard/vs_code/signal_project/fir8bit/i2s_transceiver.vhd|
+!i113 1
+R12
+R13
+Alogic
+R3
+R4
+Z19 DEx4 work 15 i2s_transceiver 0 22 K@AQmE86OYSK?_cFlBB`]3
+!i122 1
+l53
+L44 68
+V98SYLh[2RP?bN=Q7<E5B30
+!s100 ^`iS]DAC7Mm2TH6d48:eO0
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Epll
+Z20 w1728905390
+R3
+R4
+!i122 5
+R0
+Z21 8D:/New_Asgard/vs_code/signal_project/fir8bit/pll.vhd
+Z22 FD:/New_Asgard/vs_code/signal_project/fir8bit/pll.vhd
+l0
+L43 1
+VM1G<I7MQ0iM[I=R0HL;Nd3
+!s100 I>2>QkW:F3U3H]^dHaTUX2
+R7
+31
+R8
+!i10b 1
+R9
+Z23 !s90 -reportprogress|300|-93|-work|work|D:/New_Asgard/vs_code/signal_project/fir8bit/pll.vhd|
+Z24 !s107 D:/New_Asgard/vs_code/signal_project/fir8bit/pll.vhd|
+!i113 1
+R12
+R13
+Asyn
+R3
+R4
+Z25 DEx4 work 3 pll 0 22 M1G<I7MQ0iM[I=R0HL;Nd3
+!i122 5
+l132
+L54 155
+V:dC:?Y<WNX[_6Od=DaC9g0
+!s100 mR7mZg^5il>?0Il1:W?Of2
+R7
+31
+R8
+!i10b 1
+R9
+R23
+R24
+!i113 1
+R12
+R13
+vpll_altpll
+!s110 1728987418
+!i10b 1
+!s100 H07@iD=ES;]OKM@SzdG6H3
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+IH?Dg?_o5N=G9Q;n7;@e0I1
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1728905455
+8D:/New_Asgard/vs_code/signal_project/fir8bit/db/pll_altpll.v
+FD:/New_Asgard/vs_code/signal_project/fir8bit/db/pll_altpll.v
+!i122 0
+L0 31 79
+OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1728987418.000000
+!s107 D:/New_Asgard/vs_code/signal_project/fir8bit/db/pll_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/New_Asgard/vs_code/signal_project/fir8bit/db|D:/New_Asgard/vs_code/signal_project/fir8bit/db/pll_altpll.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+D:/New_Asgard/vs_code/signal_project/fir8bit/db
+tCvgOpt 0
+Esignal_i2s
+Z26 w1728985144
+Z27 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z28 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R3
+R4
+!i122 6
+R0
+Z29 8D:/New_Asgard/vs_code/signal_project/fir8bit/signal_i2s.vhd
+Z30 FD:/New_Asgard/vs_code/signal_project/fir8bit/signal_i2s.vhd
+l0
+L5 1
+V[=VY61FUQGAENj4<dk>W80
+!s100 NMWFCUD`KPMMSdJa>UOCB3
+R7
+31
+Z31 !s110 1728987420
+!i10b 1
+R9
+Z32 !s90 -reportprogress|300|-93|-work|work|D:/New_Asgard/vs_code/signal_project/fir8bit/signal_i2s.vhd|
+Z33 !s107 D:/New_Asgard/vs_code/signal_project/fir8bit/signal_i2s.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R19
+R25
+R27
+R28
+R3
+R4
+DEx4 work 10 signal_i2s 0 22 [=VY61FUQGAENj4<dk>W80
+!i122 6
+l33
+L21 63
+VEDE0mH@l;T2Z:^@5=fV:E2
+!s100 ?8Kzk<<LlK^UNA^clh<MX1
+R7
+31
+R31
+!i10b 1
+R9
+R32
+R33
+!i113 1
+R12
+R13
+Etb_top
+Z34 w1728987397
+R2
+R3
+R4
+!i122 7
+R0
+Z35 8D:/New_Asgard/vs_code/signal_project/fir8bit/tb_top.vhd
+Z36 FD:/New_Asgard/vs_code/signal_project/fir8bit/tb_top.vhd
+l0
+L7 1
+VNMH]2?nf0fAU;65g=9QZ?0
+!s100 OHe@UkO9]kDgU:zRf<baZ2
+R7
+31
+R31
+!i10b 1
+Z37 !s108 1728987420.000000
+Z38 !s90 -reportprogress|300|-93|-work|work|D:/New_Asgard/vs_code/signal_project/fir8bit/tb_top.vhd|
+!s107 D:/New_Asgard/vs_code/signal_project/fir8bit/tb_top.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 6 tb_top 0 22 NMH]2?nf0fAU;65g=9QZ?0
+!i122 7
+l38
+L10 77
+V=30B@B7P5jHS]HjDC=JWg3
+!s100 Q;jN@BB_2Pj4=gR^`NhK>0
+R7
+31
+R31
+!i10b 1
+R37
+R38
+Z39 !s107 D:/New_Asgard/vs_code/signal_project/fir8bit/tb_top.vhd|
+!i113 1
+R12
+R13
+Etop
+Z40 w1728985176
+R2
+R3
+R4
+!i122 3
+R0
+Z41 8D:/New_Asgard/vs_code/signal_project/fir8bit/top.vhd
+Z42 FD:/New_Asgard/vs_code/signal_project/fir8bit/top.vhd
+l0
+L9 1
+V;dGA3Iai[8]_kj`G7N_BZ3
+!s100 QhBO9EYn7B7c2IzkEN;@32
+R7
+31
+R8
+!i10b 1
+R9
+Z43 !s90 -reportprogress|300|-93|-work|work|D:/New_Asgard/vs_code/signal_project/fir8bit/top.vhd|
+Z44 !s107 D:/New_Asgard/vs_code/signal_project/fir8bit/top.vhd|
+!i113 1
+R12
+R13
+Astr
+R2
+R3
+R4
+DEx4 work 3 top 0 22 ;dGA3Iai[8]_kj`G7N_BZ3
+!i122 3
+l76
+L21 125
+VJlUGiH]Z>jh;`M2IBNSEE2
+!s100 QD5flQNYnPCf?VWYljCY;2
+R7
+31
+R8
+!i10b 1
+R9
+R43
+R44
+!i113 1
+R12
+R13
+Euart_transmitter
+Z45 w1728969867
+R3
+R4
+!i122 2
+R0
+Z46 8D:/New_Asgard/vs_code/signal_project/fir8bit/uart_transmitter.vhd
+Z47 FD:/New_Asgard/vs_code/signal_project/fir8bit/uart_transmitter.vhd
+l0
+L7 1
+VaBRfL`5N8[HBnS@<n<kZh3
+!s100 XGS[1YY]f;JVWXRldBWZ;1
+R7
+31
+R8
+!i10b 1
+R9
+Z48 !s90 -reportprogress|300|-93|-work|work|D:/New_Asgard/vs_code/signal_project/fir8bit/uart_transmitter.vhd|
+Z49 !s107 D:/New_Asgard/vs_code/signal_project/fir8bit/uart_transmitter.vhd|
+!i113 1
+R12
+R13
+Artl
+R3
+R4
+DEx4 work 16 uart_transmitter 0 22 aBRfL`5N8[HBnS@<n<kZh3
+!i122 2
+l27
+L15 102
+VOiHAAk?QDXE4]C;U:R[@=2
+!s100 TBLmfnHIU?g8SI8>o=<]:1
+R7
+31
+R8
+!i10b 1
+R9
+R48
+R49
+!i113 1
+R12
+R13
