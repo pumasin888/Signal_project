@@ -1,0 +1,47 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.ALL; -- Only if needed for operations on std_logic_vector
+
+ENTITY top_level IS
+  PORT(
+    clk         : IN  STD_LOGIC;                      -- Main FPGA clock
+    reset_n     : IN  STD_LOGIC;                      -- Active low reset
+    l_data_rx   : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);  -- Left channel received data
+    r_data_rx   : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);  -- Right channel received data
+    mclk        : OUT STD_LOGIC;                       -- Master clock output for INMP441
+    sclk        : OUT STD_LOGIC;                       -- Serial clock output (I2S)
+    ws          : OUT STD_LOGIC;                       -- Word select output (I2S)
+    sd_tx       : OUT STD_LOGIC;                       -- Serial data transmit output
+    sd_rx       : IN  STD_LOGIC                        -- Serial data receive input (from INMP441)
+  );
+END top_level;
+
+ARCHITECTURE behavior OF top_level IS
+
+  -- Signals to connect to I2S transceiver
+  SIGNAL l_data_tx : STD_LOGIC_VECTOR(23 DOWNTO 0) := (OTHERS => '0'); -- Data to transmit (initially zero)
+  SIGNAL r_data_tx : STD_LOGIC_VECTOR(23 DOWNTO 0) := (OTHERS => '0'); -- Data to transmit (initially zero)
+
+BEGIN
+
+  -- Instantiate the I2S transceiver
+  i2s_inst : ENTITY work.i2s_transceiver
+    GENERIC MAP (
+      mclk_sclk_ratio => 4,  -- Adjust according to your requirements
+      sclk_ws_ratio   => 64,  -- Adjust according to your requirements
+      d_width         => 24    -- INMP441 data width
+    )
+    PORT MAP (
+      reset_n      => reset_n,
+      mclk         => clk,     -- Connect the main clock to master clock
+      sclk         => sclk,
+      ws           => ws,
+      sd_tx        => sd_tx,
+      sd_rx        => sd_rx,    -- Connect to INMP441 SD output
+      l_data_tx    => l_data_tx,
+      r_data_tx    => r_data_tx,
+      l_data_rx    => l_data_rx,
+      r_data_rx    => r_data_rx
+    );
+
+END behavior;

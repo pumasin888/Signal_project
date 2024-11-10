@@ -1,0 +1,97 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "l_data_rx[16]",
+					"strict" : false
+				},
+				{
+					"name" : "l_data_rx[17]",
+					"strict" : false
+				},
+				{
+					"name" : "l_data_rx[18]",
+					"strict" : false
+				},
+				{
+					"name" : "l_data_rx[19]",
+					"strict" : false
+				},
+				{
+					"name" : "l_data_rx[20]",
+					"strict" : false
+				},
+				{
+					"name" : "l_data_rx[21]",
+					"strict" : false
+				},
+				{
+					"name" : "l_data_rx[22]",
+					"strict" : false
+				},
+				{
+					"name" : "l_data_rx[23]",
+					"strict" : false
+				},
+				{
+					"name" : "r_data_rx[16]",
+					"strict" : false
+				},
+				{
+					"name" : "r_data_rx[17]",
+					"strict" : false
+				},
+				{
+					"name" : "r_data_rx[18]",
+					"strict" : false
+				},
+				{
+					"name" : "r_data_rx[19]",
+					"strict" : false
+				},
+				{
+					"name" : "r_data_rx[20]",
+					"strict" : false
+				},
+				{
+					"name" : "r_data_rx[21]",
+					"strict" : false
+				},
+				{
+					"name" : "r_data_rx[22]",
+					"strict" : false
+				},
+				{
+					"name" : "r_data_rx[23]",
+					"strict" : false
+				},
+				{
+					"name" : "mclk",
+					"strict" : false
+				},
+				{
+					"name" : "sclk",
+					"strict" : false
+				},
+				{
+					"name" : "ws",
+					"strict" : false
+				},
+				{
+					"name" : "sd_tx",
+					"strict" : false
+				},
+				{
+					"name" : "reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "sd_rx",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

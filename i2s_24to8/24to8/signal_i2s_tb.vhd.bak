@@ -1,0 +1,104 @@
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.math_real.all;  -- For sine wave generation
+
+entity signal_i2s_tb is
+end entity;
+
+architecture behavior of signal_i2s_tb is
+
+  -- Component declaration for the signal_i2s
+  component signal_i2s
+    port (
+      clk       : in  std_logic;
+      reset_n   : in  std_logic;
+      l_data_rx : out std_logic_vector(23 downto 0);
+      r_data_rx : out std_logic_vector(23 downto 0);
+      mclk      : out std_logic;
+      sclk      : out std_logic;
+      ws        : out std_logic;
+      sd_tx     : out std_logic;
+      sd_rx     : in  std_logic
+    );
+  end component;
+
+  -- Testbench signals
+  signal clk_tb       : std_logic := '0';
+  signal reset_n_tb   : std_logic := '0';
+  signal l_data_rx_tb : std_logic_vector(23 downto 0);
+  signal r_data_rx_tb : std_logic_vector(23 downto 0);
+  signal mclk_tb      : std_logic;
+  signal sclk_tb      : std_logic;
+  signal ws_tb        : std_logic;
+  signal sd_tx_tb     : std_logic;
+  signal sd_rx_tb     : std_logic := '0';
+
+  constant CLK_PERIOD : time := 20 ns; -- Assuming 50 MHz clock
+
+  -- LUT for sine wave values (adjust size and precision as needed)
+  type sine_lut_type is array(0 to 31) of real;
+  signal sine_lut : sine_lut_type := (
+    0.0, 0.195, 0.383, 0.556, 0.707, 0.831, 0.924, 0.980, 
+    1.0, 0.980, 0.924, 0.831, 0.707, 0.556, 0.383, 0.195,
+    -0.0, -0.195, -0.383, -0.556, -0.707, -0.831, -0.924, -0.980, 
+    -1.0, -0.980, -0.924, -0.831, -0.707, -0.556, -0.383, -0.195
+  );
+
+  signal sine_index : integer := 0;
+
+begin
+
+  -- Instantiate the signal_i2s component
+  uut: signal_i2s
+    port map (
+      clk       => clk_tb,
+      reset_n   => reset_n_tb,
+      l_data_rx => l_data_rx_tb,
+      r_data_rx => r_data_rx_tb,
+      mclk      => mclk_tb,
+      sclk      => sclk_tb,
+      ws        => ws_tb,
+      sd_tx     => sd_tx_tb,
+      sd_rx     => sd_rx_tb
+    );
+
+  -- Clock generation
+  clk_process : process
+  begin
+    while true loop
+      clk_tb <= '0';
+      wait for CLK_PERIOD / 2;
+      clk_tb <= '1';
+      wait for CLK_PERIOD / 2;
+    end loop;
+  end process;
+
+  -- Reset process
+  reset_process : process
+  begin
+    reset_n_tb <= '0';
+    wait for 100 ns;
+    reset_n_tb <= '1';
+    wait;
+  end process;
+
+  -- Process to feed sine wave values to sd_rx
+  sine_wave_process : process
+  begin
+    wait for CLK_PERIOD;
+    while true loop
+      -- Convert sine wave LUT value to std_logic (simple quantization)
+      if sine_lut(sine_index) > 0.5 then
+        sd_rx_tb <= '1';
+      else
+        sd_rx_tb <= '0';
+      end if;
+      
+      sine_index <= (sine_index + 1) mod 32;  -- Loop through LUT
+      wait for CLK_PERIOD;
+    end loop;
+  end process;
+
+end architecture;

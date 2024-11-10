@@ -1,0 +1,24 @@
+# vsim -c work.signal_i2s_tb -do "run 200ms; quit" 
+# Start time: 08:24:01 on Oct 14,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.signal_i2s_tb(behavior)
+# Loading work.signal_i2s(behavior)
+# Loading work.pll(syn)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.mf_pllpack(body)
+# Loading altera_mf.altpll(behavior)
+# Loading altera_mf.mf_cycloneiii_pll(vital_pll)
+# Loading altera_mf.mf_cda_mn_cntr(behave)
+# Loading altera_mf.mf_cda_scale_cntr(behave)
+# Loading work.i2s_transceiver(logic)
+# run 200ms
+# ** Note: MAX 10 PLL locked to incoming clock
+#    Time: 60 ns  Iteration: 3  Instance: /signal_i2s_tb/uut/pll_inst/altpll_component/CYCLONEIII_ALTPLL/M5
+#  quit
+# End time: 08:59:50 on Oct 14,2024, Elapsed time: 0:35:49
+# Errors: 0, Warnings: 0

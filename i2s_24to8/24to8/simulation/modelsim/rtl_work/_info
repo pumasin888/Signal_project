@@ -1,0 +1,211 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/tthan/Desktop/digitalquartus/24to8/simulation/modelsim
+Ei2s_transceiver
+Z1 w1728901074
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z4 8C:/Users/tthan/Desktop/digitalquartus/24to8/i2s_transceiver.vhd
+Z5 FC:/Users/tthan/Desktop/digitalquartus/24to8/i2s_transceiver.vhd
+l0
+L26 1
+VK@AQmE86OYSK?_cFlBB`]3
+!s100 02hUG37?n7og_3[Kj7XfO3
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1731219918
+!i10b 1
+Z8 !s108 1731219918.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/tthan/Desktop/digitalquartus/24to8/i2s_transceiver.vhd|
+Z10 !s107 C:/Users/tthan/Desktop/digitalquartus/24to8/i2s_transceiver.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Alogic
+R2
+R3
+Z13 DEx4 work 15 i2s_transceiver 0 22 K@AQmE86OYSK?_cFlBB`]3
+!i122 1
+l53
+L44 68
+V98SYLh[2RP?bN=Q7<E5B30
+!s100 ^`iS]DAC7Mm2TH6d48:eO0
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Epll
+Z14 w1728560572
+R2
+R3
+!i122 2
+R0
+Z15 8C:/Users/tthan/Desktop/digitalquartus/24to8/pll.vhd
+Z16 FC:/Users/tthan/Desktop/digitalquartus/24to8/pll.vhd
+l0
+L43 1
+VM1G<I7MQ0iM[I=R0HL;Nd3
+!s100 I>2>QkW:F3U3H]^dHaTUX2
+R6
+31
+R7
+!i10b 1
+R8
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/tthan/Desktop/digitalquartus/24to8/pll.vhd|
+Z18 !s107 C:/Users/tthan/Desktop/digitalquartus/24to8/pll.vhd|
+!i113 1
+R11
+R12
+Asyn
+R2
+R3
+Z19 DEx4 work 3 pll 0 22 M1G<I7MQ0iM[I=R0HL;Nd3
+!i122 2
+l132
+L54 155
+Vl_H_Z8L4hjTA^Z:>f5hdn0
+!s100 eGL4b6CU]a2XS;P_dEgkf1
+R6
+31
+R7
+!i10b 1
+R8
+R17
+R18
+!i113 1
+R11
+R12
+vpll_altpll
+R7
+!i10b 1
+!s100 OT>@Rl<C0ePo2X[FDRdYb1
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+IQ]@gUhH6<[zWXYX]kCKo`0
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1728905248
+8C:/Users/tthan/Desktop/digitalquartus/24to8/db/pll_altpll.v
+FC:/Users/tthan/Desktop/digitalquartus/24to8/db/pll_altpll.v
+!i122 0
+L0 31 79
+OV;L;2020.1;71
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/tthan/Desktop/digitalquartus/24to8/db/pll_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/tthan/Desktop/digitalquartus/24to8/db|C:/Users/tthan/Desktop/digitalquartus/24to8/db/pll_altpll.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/tthan/Desktop/digitalquartus/24to8/db
+tCvgOpt 0
+Esignal_i2s
+Z20 w1728903543
+Z21 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z22 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R2
+R3
+!i122 3
+R0
+Z23 8C:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s.vhd
+Z24 FC:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s.vhd
+l0
+L5 1
+VU0WdibObi8736DU2=kU1>3
+!s100 oSW=O=PJMK<OOQZ?]2@m12
+R6
+31
+R7
+!i10b 1
+R8
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s.vhd|
+Z26 !s107 C:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s.vhd|
+!i113 1
+R11
+R12
+Abehavior
+R13
+R19
+R21
+R22
+R2
+R3
+Z27 DEx4 work 10 signal_i2s 0 22 U0WdibObi8736DU2=kU1>3
+!i122 3
+l32
+L20 52
+VL<4WSSHi70cLngChPLXJI0
+!s100 FLTPU7CNkiGTGHF^eFCo00
+R6
+31
+R7
+!i10b 1
+R8
+R25
+R26
+!i113 1
+R11
+R12
+Esignal_i2s_tb
+Z28 w1728903634
+Z29 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R2
+R3
+!i122 4
+R0
+Z30 8C:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s_tb.vhd
+Z31 FC:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s_tb.vhd
+l0
+L6 1
+VhbBOmIT6>aB^XlNIDg1<C1
+!s100 kbJY4F]Do6=imHLLG>Hk^1
+R6
+31
+R7
+!i10b 1
+R8
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s_tb.vhd|
+!s107 C:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s_tb.vhd|
+!i113 1
+R11
+R12
+Abehavior
+R21
+R22
+R27
+R29
+R2
+R3
+DEx4 work 13 signal_i2s_tb 0 22 hbBOmIT6>aB^XlNIDg1<C1
+!i122 4
+l49
+L12 108
+VdkDTAL7IZUzOG^D;2f`9Q2
+!s100 WW<bh:>B4^YdBb]0da<l?2
+R6
+31
+R7
+!i10b 1
+R8
+R32
+Z33 !s107 C:/Users/tthan/Desktop/digitalquartus/24to8/signal_i2s_tb.vhd|
+!i113 1
+R11
+R12
